@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Translation;
+namespace Bamboo\Admin\Translation;
 
 use Bamboo\Admin\Admin;
 use Bamboo\Admin\Extension;
