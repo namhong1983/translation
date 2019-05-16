@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin\Translation;
+namespace Bamboo\Admin\Translation;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Box;
+use Bamboo\Admin\Facades\Admin;
+use Bamboo\Admin\Form;
+use Bamboo\Admin\Grid;
+use Bamboo\Admin\Layout\Content;
+use Bamboo\Admin\Widgets\Box;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
