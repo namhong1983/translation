@@ -2,8 +2,8 @@
 
 namespace Encore\Admin\Translation;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Extension;
+use Bamboo\Admin\Admin;
+use Bamboo\Admin\Extension;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
