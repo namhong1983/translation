@@ -1,5 +1,5 @@
 {
-    "name": "laravel-admin-ext/translation",
+    "name": "namhong1983/translation",
     "description": "Translation manager for laravel",
     "type": "library",
     "keywords": ["laravel-admin", "translation", "lang"],
