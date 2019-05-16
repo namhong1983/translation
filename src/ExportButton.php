@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Translation;
+namespace Bamboo\Admin\Translation;
 
-use Encore\Admin\Facades\Admin;
+use Bamboo\Admin\Facades\Admin;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\DB;
 
