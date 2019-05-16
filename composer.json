@@ -14,7 +14,7 @@
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "~5.5",
-        "bamboo/admin": "~1.5"
+        "bamboo/admin": "~1.6"
     },
     "require-dev": {
         "phpunit/phpunit": "~6.0",
@@ -22,13 +22,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Encore\\Admin\\Translation\\": "src/"
+            "Bamboo\\Admin\\Translation\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Encore\\Admin\\Translation\\TranslationServiceProvider"
+                "Bamboo\\Admin\\Translation\\TranslationServiceProvider"
             ]
 
         }
