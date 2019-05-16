@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Translation\Console;
+namespace Bamboo\Admin\Translation\Console;
 
-use Encore\Admin\Translation\Translation;
+use Bamboo\Admin\Translation\Translation;
 use Illuminate\Console\Command;
 
 class ExportCommand extends Command
