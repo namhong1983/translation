@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Translation;
+namespace Bamboo\Admin\Translation;
 
 use Illuminate\Database\Eloquent\Model;
 
