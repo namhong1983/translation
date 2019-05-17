@@ -144,20 +144,19 @@ class TranslationController
     public function grid()
     {
         return Admin::grid(TranslationModel::class, function (Grid $grid) {
-            $grid->model()->groupBy(['group', 'key'])->select(['id', 'group', 'key', DB::raw('GROUP_CONCAT(status SEPARATOR \',\') as status'), DB::raw('GROUP_CONCAT(DISTINCT CONCAT(locale,\'###\',value) ORDER BY locale ASC SEPARATOR \'|||\') as value'), 'created_at', 'updated_at']);
+            $grid->model()->select('group', 'key', DB::raw("GROUP_CONCAT(status, ',') as status"), DB::raw("GROUP_CONCAT(DISTINCT CONCAT(locale,'###',value) ORDER BY locale ASC SEPARATOR '|||') as value"));
+            //$grid->model()->select('id', 'group', 'key', DB::raw("GROUP_CONCAT(status) as status"), DB::raw("GROUP_CONCAT(DISTINCT CONCAT(locale,'###',value) ORDER BY locale ASC SEPARATOR '|||') as value"), 'created_at', 'updated_at');
 
+            $grid->model()->groupBy('group', 'key');
             $grid->column('usage')->display(function () {
                 return "<code>trans('{$this->group}.{$this->key}')</code>";
             });
-
             $grid->value('Locale : Text')->display(function ($value) {
                 $html = '<dl class="dl-horizontal" style="margin: 0px;">';
-
                 foreach (explode('|||', $value) as $value) {
                     list($locale, $value) = explode('###', $value);
                     $html .= "<dt style='width: 45px;'>$locale:</dt><dd style='margin-left: 50px;margin-bottom: 5px;'><em>$value</em></dd>";
                 }
-
                 return $html.'</dl>';
             });
 
@@ -166,11 +165,8 @@ class TranslationController
 
             $grid->status()->display(function ($status) {
                 $status = explode(',', $status);
-
                 $changed = in_array(TranslationModel::STATUS_CHANGED, $status);
-
-                return $changed ? '<span class="label label-danger">changed</span>'
-                    : '<span class="label label-success">saved</span>';
+                return $changed ? '<span class="label label-danger">changed</span>': '<span class="label label-success">saved</span>';
             });
 
             $grid->updated_at();
@@ -184,13 +180,11 @@ class TranslationController
             });
 
             $grid->actions(function (Grid\Displayers\Actions $actions) {
-                $actions->setKey($this->row->group.'.'.$this->row->key);
+                //$actions->setKey($this->row->group.'.'.$this->row->key);
             });
-
             $grid->tools(function (Grid\Tools $tools) {
                 $tools->append(new ExportButton());
             });
-
             $grid->disableExport();
             $grid->disableRowSelector();
         });
